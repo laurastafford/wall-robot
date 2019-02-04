@@ -1,10 +1,12 @@
+//setup for dyepper
 #include <Stepper.h>
 const int SPR = 200; //amount of steps of motor
 Stepper left(SPR, 2, 3, 4, 5);
 Stepper right(SPR, 6, 7, 8, 9);
 int stepCount = 0; // how far the step has gone
 
-int trigPin = 8;
+//setup for distance
+int trigPin = 8; 
 int echoPin = 7;
 long duration;
 
