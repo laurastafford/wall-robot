@@ -10,7 +10,8 @@ int trigPin = 8;
 int echoPin = 7;
 long duration;
 
-void distance(){
+//calculates the distance to nearest object 
+void distance(){ 
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   
