@@ -28,6 +28,12 @@ void setup() {
 
 }
 
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin, INPUT);
+  pinMode(echoPin, OUTPUT);)
+}
+
 void loop() {
 distance();
 
