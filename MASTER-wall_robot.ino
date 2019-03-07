@@ -3,7 +3,8 @@
 //setup for distance
 int trigPin = 8; 
 int echoPin = 7;
-int motorPin = 3;
+int motorPinL = 3;
+int motorPinR = 3;
 long duration;
 
 //calculates the distance to nearest object 
@@ -23,9 +24,9 @@ void distance(){
   delay(100);
 }
 
-void forwards(speed){
-analogWrite(motorPinL, speed):
-analogWrite(motorPinR, speed):
+void forwards(int speed){
+analogWrite(motorPinL, speed);
+analogWrite(motorPinR, speed);
 
 }
 void setup() {
