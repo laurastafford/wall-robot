@@ -49,7 +49,7 @@ void setup() {
   pinMode(trigPin, INPUT);
   pinMode(echoPin, OUTPUT);)
 }
-
+// tom 
 void stop(int ){
   d = distance()
 while d == 10 
