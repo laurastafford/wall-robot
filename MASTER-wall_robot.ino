@@ -18,7 +18,7 @@ int motorPinR = 3;
 long duration;
 
 //calculates the distance to nearest object (George and Laura)
-void distance(){ 
+int distance(){ 
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   
@@ -32,6 +32,7 @@ void distance(){
  
   Serial.println (distanceCm);
   delay(100);
+  return distanceCm;
 }
 //sensor servo move(Evan and Jordan) 
 void servo(int angle) {
