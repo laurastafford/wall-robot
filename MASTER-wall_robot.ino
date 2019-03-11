@@ -8,13 +8,14 @@ const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 //pins for LCD screen are 12, 11, 5, 4, 3 & 2
 
-int pos = 0;  
+ 
 
-//setup for distance
+//setup for pins
+int pos = 0; 
 int trigPin = 8; 
 int echoPin = 7;
 int motorPinL = 3;
-int motorPinR = 3;
+int motorPinR = 4;
 long duration;
 
 //calculates the distance to nearest object (George and Laura)
