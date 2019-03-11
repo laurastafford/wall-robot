@@ -69,3 +69,15 @@ analogWrite(motorPinL, speed);
 void right(){
 analogWrite(motorPinR, speed);  
 }
+
+int start(){
+  int d=0;
+  for (int i=0; i<=180; i+20){
+    servo(i);
+     d = distance();
+    if (d< distance()){
+      d= distance();  
+    }
+  }
+}
+
