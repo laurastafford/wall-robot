@@ -7,7 +7,7 @@ int motorPinL = 3;
 int motorPinR = 3;
 long duration;
 
-//calculates the distance to nearest object 
+//calculates the distance to nearest object (George and Laura)
 void distance(){ 
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
@@ -23,13 +23,13 @@ void distance(){
   Serial.println (distanceCm);
   delay(100);
 }
-
+//sets both motors to go at a set speed (Laura and George)
 void forwards(int speed){
 analogWrite(motorPinL, speed);
 analogWrite(motorPinR, speed);
 
 }
-
+// goes Left and right (Laura and George)
 void left(int speed){
 analogWrite(motorPinL, speed);  
 }
@@ -37,7 +37,7 @@ analogWrite(motorPinL, speed);
 void right(){
 analogWrite(motorPinR, speed);  
 }
-
+// setting up all the pins on the arduino 
 void setup() {
   Serial.begin(9600);
   pinMode(trigPin, OUTPUT);
