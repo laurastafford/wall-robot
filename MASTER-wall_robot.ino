@@ -33,7 +33,7 @@ void distance(){
   Serial.println (distanceCm);
   delay(100);
 }
-//sensor servo move(Even and Jordan) 
+//sensor servo move(Evan and Jordan) 
 void servo(int angle) {
   for (pos = 0; pos <= angle; pos += 1) { 
     myservo.write(pos);              
