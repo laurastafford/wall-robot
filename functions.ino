@@ -50,9 +50,15 @@ void setup() {
   pinMode(echoPin, OUTPUT);)
 }
 
-void stop(){
-
-
+void stop(int ){
+  d = distance()
+while d == 10 
+  speed = (distance * 10)
+  motorSpin (motorPinL, speed);
+  motorSpin (motorPinR, speed);
+elif d == 1 
+  motorspin (motorPinL, 0);
+  motorspin (motorPinR, 0);
 }
 
 void left(int speed){
@@ -61,26 +67,4 @@ analogWrite(motorPinL, speed);
 
 void right(){
 analogWrite(motorPinR, speed);  
-}
-
-//------------------------------------
-#include <Servo.h>
-
-Servo myservo;  
-
-int pos = 0;    
-
-void setup() {
-  myservo.attach(9); 
-}
-
-void servo(int angle) {
-  for (pos = 0; pos <= angle; pos += 1) { 
-    myservo.write(pos);              
-    delay(15);                      
-  }
-  for (pos = angle; pos >= 0; pos -= 1) { 
-    myservo.write(pos);            
-    delay(15);                     
-  }
 }
