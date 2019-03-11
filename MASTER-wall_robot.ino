@@ -85,6 +85,19 @@ else if (distance() == 1) {
   analogWrite(motorPinR, 0);
 }
 }
+
+//start func evan jordan
+int start(){
+  int d=0;
+  for (int i=0; i<=180; i+20){
+    servo(i);
+     d = distance();
+    if (d< distance()){
+      d= distance();  
+    }
+  }
+}
+
 // setting up all the pins on the arduino 
 void setup() {
   Serial.begin(9600);
