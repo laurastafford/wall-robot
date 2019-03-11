@@ -62,3 +62,25 @@ analogWrite(motorPinL, speed);
 void right(){
 analogWrite(motorPinR, speed);  
 }
+
+//------------------------------------
+#include <Servo.h>
+
+Servo myservo;  
+
+int pos = 0;    
+
+void setup() {
+  myservo.attach(9); 
+}
+
+void servo(int angle) {
+  for (pos = 0; pos <= angle; pos += 1) { 
+    myservo.write(pos);              
+    delay(15);                      
+  }
+  for (pos = angle; pos >= 0; pos -= 1) { 
+    myservo.write(pos);            
+    delay(15);                     
+  }
+}
