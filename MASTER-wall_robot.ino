@@ -29,6 +29,15 @@ analogWrite(motorPinL, speed);
 analogWrite(motorPinR, speed);
 
 }
+
+void left(int speed){
+analogWrite(motorPinL, speed);  
+}
+
+void right(){
+analogWrite(motorPinR, speed);  
+}
+
 void setup() {
   Serial.begin(9600);
   pinMode(trigPin, OUTPUT);
