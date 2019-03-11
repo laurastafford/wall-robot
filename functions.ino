@@ -34,8 +34,8 @@ void setup() {
   pinMode(echoPin, OUTPUT);)
 }
 
-void loop() {
-distance();
+void stop(){
+
 
 }
 
