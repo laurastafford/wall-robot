@@ -1,4 +1,7 @@
+#include <Servo.h>
+Servo myservo;  
 
+int pos = 0;  
 
 //setup for distance
 int trigPin = 8; 
@@ -23,6 +26,17 @@ void distance(){
   Serial.println (distanceCm);
   delay(100);
 }
+//sensor servo move(Even and Jordan) 
+void servo(int angle) {
+  for (pos = 0; pos <= angle; pos += 1) { 
+    myservo.write(pos);              
+    delay(15);                      
+  }
+  for (pos = angle; pos >= 0; pos -= 1) { 
+    myservo.write(pos);            
+    delay(15);                     
+  }
+}
 //sets both motors to go at a set speed (Laura and George)
 void forwards(int speed){
 analogWrite(motorPinL, speed);
@@ -44,6 +58,7 @@ void setup() {
   pinMode(echoPin, INPUT);
   pinMode(motorPinL, OUTPUT);
   pinMode(motorPinR, OUTPUT);
+  myservo.attach(9); 
   
 }
 
