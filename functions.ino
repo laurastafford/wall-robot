@@ -79,5 +79,6 @@ int start(){
       d= distance();  
     }
   }
+  return d;
 }
 
