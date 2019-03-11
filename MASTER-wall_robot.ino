@@ -69,7 +69,7 @@ void left(int speed){
 analogWrite(motorPinL, speed);  
 }
 
-void right(){
+void right(int speed){
 analogWrite(motorPinR, speed);  
 }
 // setting up all the pins on the arduino 
