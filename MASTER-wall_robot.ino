@@ -101,6 +101,7 @@ int start(){
       d= distance();  
     }
   }
+ return d;
 }
 
 // setting up all the pins on the arduino 
