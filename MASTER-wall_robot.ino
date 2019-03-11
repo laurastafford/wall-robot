@@ -72,6 +72,19 @@ analogWrite(motorPinL, speed);
 void right(int speed){
 analogWrite(motorPinR, speed);  
 }
+//stops robot(Jack G, Dan Vass and Tom B)
+void stop( ){
+
+if (distance() == 10) {
+  int speed = (distance() * 10);
+  analogWrite(motorPinL, speed);
+  analogWrite(motorPinR, speed);
+}
+else if (distance() == 1) {
+  analogWrite(motorPinL, 0);
+  analogWrite(motorPinR, 0);
+}
+}
 // setting up all the pins on the arduino 
 void setup() {
   Serial.begin(9600);
