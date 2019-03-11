@@ -38,3 +38,11 @@ void loop() {
 distance();
 
 }
+
+void left(int speed){
+analogWrite(motorPinL, speed);  
+}
+
+void right(){
+analogWrite(motorPinR, speed);  
+}
