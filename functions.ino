@@ -8,7 +8,7 @@
 
   long duration;
 
-void distance(){
+int distance(){
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   
@@ -22,6 +22,7 @@ void distance(){
  
   Serial.println (distanceCm);
   delay(100);
+  return distanceCm
 }
 
 void Lcd(int text) {
