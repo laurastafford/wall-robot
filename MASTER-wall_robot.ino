@@ -19,7 +19,7 @@ int motorPinR = 4;
 long duration;
 
 //calculates the distance to nearest object (George and Laura)
-int distance(){ 
+long distance(){ 
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   
@@ -29,12 +29,13 @@ int distance(){
   digitalWrite(trigPin, LOW);
   
   duration = pulseIn(echoPin, HIGH);
-  int distanceCm= duration*0.034/2;
+  long distanceCm= duration*0.034/2;
  
   Serial.println (distanceCm);
   delay(100);
   return distanceCm;
 }
+
 //sensor servo move(Evan and Jordan) 
 void servo(int angle) {
   for (pos = 0; pos <= angle; pos += 1) { 
@@ -46,17 +47,18 @@ void servo(int angle) {
     delay(15);                     
   }
 }
+
 //sets both motors to go at a set speed (Laura and George)
 void forwards(int speed){
 analogWrite(motorPinL, speed);
 analogWrite(motorPinR, speed);
 
 }
+
 //The LCD screen will need to be cleared, 
 //as it will continously print and look wrong &
 //without the delay it will instantally clear
 //(jack and issac)
-
 void Lcd(int text) {
     lcd.setCursor(0, 0);
   //sets where the message will be printed
@@ -74,6 +76,7 @@ analogWrite(motorPinL, speed);
 void right(int speed){
 analogWrite(motorPinR, speed);  
 }
+
 //stops robot(Jack G, Dan Vass and Tom B)
 void stop( ){
 
