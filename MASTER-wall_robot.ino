@@ -49,9 +49,9 @@ void servo(int angle) {
 }
 
 //sets both motors to go at a set speed (Laura and George)
-void forwards(int speed){
-analogWrite(motorPinL, speed);
-analogWrite(motorPinR, speed);
+void forwards(){
+digitalWrite(motorPinL, HIGH);
+digitalWrite(motorPinR, HIGH);
 
 }
 
@@ -69,12 +69,15 @@ void Lcd(int text) {
 }
 
 // goes Left and right (Laura and George)
-void left(int speed){
-analogWrite(motorPinL, speed);  
+void left(){
+digitalWrite(motorPinL,HIGH);  
+digitalWrite(motorPinR,LOW); 
 }
 
-void right(int speed){
-analogWrite(motorPinR, speed);  
+void right(){
+digitalWrite(motorPinR, HIGH);
+digitalWrite(motorPinL,LOW); 
+
 }
 
 //stops robot(Jack G, Dan Vass and Tom B)
