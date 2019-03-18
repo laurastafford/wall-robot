@@ -16,6 +16,7 @@ int trigPin = 8;
 int echoPin = 7;
 int motorPinL = 3;
 int motorPinR = 4;
+int servoPin = 9;
 long duration;
 
 //calculates the distance to nearest object (George and Laura)
@@ -38,14 +39,14 @@ long distance(){
 
 //sensor servo move(Evan and Jordan) 
 void servo(int angle) {
-  for (pos = 0; pos <= angle; pos += 1) { 
-    myservo.write(pos);              
+//  for (pos = 0; pos <= angle; pos += 1) { 
+    myservo.write(angle);              
     delay(15);                      
-  }
-  for (pos = angle; pos >= 0; pos -= 1) { 
-    myservo.write(pos);            
-    delay(15);                     
-  }
+  //}
+//  for (pos = angle; pos >= 0; pos -= 1) { 
+  //  myservo.write(pos);            
+    //delay(15);                     
+  //}
 }
 
 //sets both motors to go at a set speed (Laura and George)
@@ -97,7 +98,7 @@ else if (distance() == 1) {
 //start func evan jordan
 int start(){
   int d=0;
-  for (int i=0; i<=180; i+20){
+  for (int i=0; i<=180; i= i+20){
     servo(i);
      d = distance();
     if (d< distance()){
@@ -114,12 +115,12 @@ void setup() {
   pinMode(echoPin, INPUT);
   pinMode(motorPinL, OUTPUT);
   pinMode(motorPinR, OUTPUT);
-  myservo.attach(9); 
+  myservo.attach(servoPin); 
   lcd.begin(16, 2); 
   
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+start();
 }
