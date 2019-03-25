@@ -4,7 +4,7 @@ Servo myservo;
 
 //lcd setup
 #include <LiquidCrystal.h>
-const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 10, d7 = 2; 
+const int rs = 12, en = 11, d4 = 5, d5 = 1, d6 = 10, d7 = 2; 
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 //pins for LCD screen are 12, 11, 5, 4, 10 & 2
 
