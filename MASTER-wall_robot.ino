@@ -52,6 +52,7 @@ void servo(int angle) {
 
 //sets both motors to go at a set speed (Laura and George)
 void forwards(){
+delay(250);
 digitalWrite(motorPinL, HIGH);
 digitalWrite(motorPinR, HIGH);
 lcd.setCursor(0,0);
@@ -64,6 +65,7 @@ lcd.println("Forwards");
 //without the delay it will instantally clear
 //(jack and issac)
 void Lcd() {
+ 
     lcd.setCursor(0, 0);
   //sets where the message will be printed
   lcd.println();
@@ -74,6 +76,7 @@ void Lcd() {
 
 // goes Left and right (Laura and George)
 void left(){
+  delay(250);
 digitalWrite(motorPinL,HIGH);  
 digitalWrite(motorPinR,LOW); 
 lcd.setCursor(0,0);
@@ -82,6 +85,7 @@ lcd.println("left");
 }
 
 void right(){
+  delay(250);
 digitalWrite(motorPinR, HIGH);
 digitalWrite(motorPinL,LOW); 
 lcd.setCursor(0,0);
@@ -101,6 +105,7 @@ if (distance() == 10) {
 else if (distance() == 1) {
   analogWrite(motorPinL, 0);
   analogWrite(motorPinR, 0);
+  delay(250);
   lcd.setCursor(0,0);
    lcd.clear();
   lcd.println("stop");
