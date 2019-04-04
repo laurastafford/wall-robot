@@ -20,7 +20,8 @@ int servoPin = 9;
 long duration;
 
 //calculates the distance to nearest object (George and Laura)
-long distance(){ 
+long distance(){
+  lcd.setCursor(0, 1);
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   
@@ -31,7 +32,7 @@ long distance(){
   
   duration = pulseIn(echoPin, HIGH);
   long distanceCm= duration*0.034/2;
- 
+  lcd.print(distanceCm);
   Serial.println (distanceCm);
   delay(100);
   return distanceCm;
@@ -53,17 +54,19 @@ void servo(int angle) {
 void forwards(){
 digitalWrite(motorPinL, HIGH);
 digitalWrite(motorPinR, HIGH);
-
+lcd.setCursor(0,0);
+lcd.clear();
+lcd.println("Forwards");
 }
 
 //The LCD screen will need to be cleared, 
 //as it will continously print and look wrong &
 //without the delay it will instantally clear
 //(jack and issac)
-void Lcd(int text) {
+void Lcd() {
     lcd.setCursor(0, 0);
   //sets where the message will be printed
-  lcd.print(text);
+  lcd.println();
   //Prints a message to the LCD screen
   delay(500);
   lcd.clear();
@@ -73,11 +76,17 @@ void Lcd(int text) {
 void left(){
 digitalWrite(motorPinL,HIGH);  
 digitalWrite(motorPinR,LOW); 
+lcd.setCursor(0,0);
+lcd.clear();
+lcd.println("left");
 }
 
 void right(){
 digitalWrite(motorPinR, HIGH);
 digitalWrite(motorPinL,LOW); 
+lcd.setCursor(0,0);
+lcd.clear();
+lcd.println("right");
 
 }
 
@@ -92,6 +101,9 @@ if (distance() == 10) {
 else if (distance() == 1) {
   analogWrite(motorPinL, 0);
   analogWrite(motorPinR, 0);
+  lcd.setCursor(0,0);
+   lcd.clear();
+  lcd.println("stop");
 }
 }
 
