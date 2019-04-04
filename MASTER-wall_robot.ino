@@ -99,14 +99,14 @@ void stop( ){
 
 if (distance() == 10) {
   int speed = (distance() * 10);
-  analogWrite(motorPinL, speed);
-  analogWrite(motorPinR, speed);
+  digitalWrite(motorPinL, speed);
+  digitalWrite(motorPinR, speed);
 }
 else if (distance() == 1) {
-  analogWrite(motorPinL, 0);
-  analogWrite(motorPinR, 0);
+  digitalWrite(motorPinL, low);
+  digitalWrite(motorPinR, low);
   delay(250);
-  lcd.setCursor(0,0);
+  lcd.setCursor(low,low);
    lcd.clear();
   lcd.println("stop");
 }
