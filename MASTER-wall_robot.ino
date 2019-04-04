@@ -4,23 +4,24 @@ Servo myservo;
 
 //lcd setup
 #include <LiquidCrystal.h>
-const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2; 
+const int rs = 12, en = 11, d4 = 5, d5 = 1, d6 = 10, d7 = 2; 
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
-//pins for LCD screen are 12, 11, 5, 4, 3 & 2
+//pins for LCD screen are 12, 11, 5, 4, 10 & 2
 
  
 
 //setup for pins
 int pos = 0; 
-int trigPin = A0; 
-int echoPin = A1;
+int trigPin = 8; 
+int echoPin = 7;
 int motorPinL = 3;
 int motorPinR = 4;
 int servoPin = 9;
 long duration;
 
 //calculates the distance to nearest object (George and Laura)
-long distance(){ 
+long distance(){
+  lcd.setCursor(0, 1);
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   
@@ -31,7 +32,7 @@ long distance(){
   
   duration = pulseIn(echoPin, HIGH);
   long distanceCm= duration*0.034/2;
- 
+  lcd.print(distanceCm);
   Serial.println (distanceCm);
   delay(100);
   return distanceCm;
@@ -51,19 +52,23 @@ void servo(int angle) {
 
 //sets both motors to go at a set speed (Laura and George)
 void forwards(){
+delay(250);
 digitalWrite(motorPinL, HIGH);
 digitalWrite(motorPinR, HIGH);
-
+lcd.setCursor(0,0);
+lcd.clear();
+lcd.println("Forwards");
 }
 
 //The LCD screen will need to be cleared, 
 //as it will continously print and look wrong &
 //without the delay it will instantally clear
 //(jack and issac)
-void Lcd(int text) {
+void Lcd() {
+ 
     lcd.setCursor(0, 0);
   //sets where the message will be printed
-  lcd.print(text);
+  lcd.println();
   //Prints a message to the LCD screen
   delay(500);
   lcd.clear();
@@ -71,31 +76,43 @@ void Lcd(int text) {
 
 // goes Left and right (Laura and George)
 void left(){
+  delay(250);
 digitalWrite(motorPinL,HIGH);  
 digitalWrite(motorPinR,LOW); 
+lcd.setCursor(0,0);
+lcd.clear();
+lcd.println("left");
 }
 
 void right(){
+  delay(250);
 digitalWrite(motorPinR, HIGH);
 digitalWrite(motorPinL,LOW); 
+lcd.setCursor(0,0);
+lcd.clear();
+lcd.println("right");
 
 }
 
 //stops robot(Jack G, Dan Vass and Tom B)
 void stop( ){
 
-if (distance() > 10) {
+if (distance() == 10) {
   int speed = (distance() * 10);
   analogWrite(motorPinL, speed);
   analogWrite(motorPinR, speed);
 }
-else if (distance() <= 10) {
+else if (distance() == 1) {
   analogWrite(motorPinL, 0);
   analogWrite(motorPinR, 0);
+  delay(250);
+  lcd.setCursor(0,0);
+   lcd.clear();
+  lcd.println("stop");
 }
 }
 
-//start func evan + jordan
+//start func evan jordan
 int start(){
   int d=0;
   for (int i=0; i<=180; i= i+20){
@@ -122,5 +139,5 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+start();
 }
