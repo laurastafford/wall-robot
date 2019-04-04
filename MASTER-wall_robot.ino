@@ -41,6 +41,8 @@ long distance(){
 //sensor servo move(Evan and Jordan) 
 void servo(int angle) {
 //  for (pos = 0; pos <= angle; pos += 1) { 
+    lcd.setCursor(0, 0);
+    lcd.print("spin");
     myservo.write(angle);              
     delay(15);                      
   //}
